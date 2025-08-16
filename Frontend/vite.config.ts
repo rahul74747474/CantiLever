@@ -1,9 +1,6 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-
 export default defineConfig({
-  root: ".", // keep root as Frontend
+  root: ".",
+  base: "/",   // 👈 required for Vercel SPA deployment
   server: {
     host: "::",
     port: 8080,
@@ -12,13 +9,13 @@ export default defineConfig({
     outDir: "dist/spa",
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, "index.html"), // ✅ tell Vite entry point
+      input: path.resolve(__dirname, "index.html"),
     },
   },
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./client"), // src folder
+      "@": path.resolve(__dirname, "./client"),
       "@swc/core": "@swc/wasm",
     },
   },
