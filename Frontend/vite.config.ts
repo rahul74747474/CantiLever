@@ -1,22 +1,22 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  root: "client", // app lives here
   server: {
     host: "::",
     port: 8080,
   },
   build: {
-    outDir: "dist/spa",
+    outDir: "../dist/spa", // output goes back to Frontend/dist/spa
+    emptyOutDir: true,
   },
   plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
-      "@swc/core": "@swc/wasm", // ✅ ADD THIS LINE
+      "@swc/core": "@swc/wasm"
     },
   },
 }));
