@@ -31,7 +31,7 @@ import {
 import axios from "../api/axios";
 import { v4 as uuidv4 } from "uuid";
 
-const SOCKET_SERVER_URL = "http://localhost:3000";
+const SOCKET_SERVER_URL = "https://cantilever-uj6q.onrender.com";
 // const SOCKET_SERVER_URL = "https://40z329b0-3000.inc1.devtunnels.ms";
 
 // Define your types
